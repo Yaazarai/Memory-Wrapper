@@ -2,7 +2,7 @@
 
 #pragma region Null Terminated Memory
 void* reallocg(void* ptr, size_t size) {
-    void* nptr = calloc(size + 1, 1);
+    void* nptr = calloc(size + 1, sizeof(char));
 
     if (nptr != NULL) {
         if (ptr == NULL)
