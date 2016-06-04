@@ -1,11 +1,12 @@
 # null-terminated-memory
-Null-terminated and zero'd out memory for C.
+Null-terminated and zero'd out memory container for C. The container keeps track of both the point and the length of the pointer.
+```C
+// Memory Container.
+typedef struct c_memory {
+ unsigned int length;
+ unsigned char* pointer;
+} memory;
 
-The following functions add a null-terminated element to the end of the newly allocated memory.
-- reallocg(ptr, size)
- - allocates zero'd memory, then copy's the old memory into the new memory.
-- callocg(size)
- - allocates memory with all elements zero'd out.
- - does not take (count, size) args like calloc().
-- mallocg(size)
- - allocates memory without zeroing out elements.
+// Memory Allocation.
+memory* callocg(unsigned int length);
+```
