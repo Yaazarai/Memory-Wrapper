@@ -1,8 +1,8 @@
 #include "memory.h"
 
 #pragma region Null Terminated Memory
-memory* reallocg(memory* ptr, size_t length) {
-    size_u8* newptr = (size_u8*) calloc(length + 1, sizeof(char));
+memory* reallocg(memory* ptr, uint_32 len) {
+    uint_08* newptr = (uint_08*) calloc(len + 1, sizeof(uint_08));
 
     if (newptr != NULL) {
         if (ptr->pointer == NULL) {
@@ -10,8 +10,8 @@ memory* reallocg(memory* ptr, size_t length) {
             return ptr;
         }
 
-        memcpy(newptr, ptr->pointer, (length > ptr->length) ? ptr->length : length);
-        ptr->length = length;
+        memcpy(newptr, ptr->pointer, (len > ptr->length) ? ptr->length : len);
+        ptr->length = len;
         free(ptr->pointer);
         ptr->pointer = newptr;
     }
@@ -19,18 +19,18 @@ memory* reallocg(memory* ptr, size_t length) {
     return ptr;
 };
 
-memory* callocg(size_t length) {
-    memory* ptr = (memory*) calloc(sizeof(memory), sizeof(size_u8));
-    ptr->pointer = calloc(length + 1, sizeof(size_u8));
-    ptr->length = length;
+memory* callocg(uint_32 len) {
+    memory* ptr = (memory*) calloc(sizeof(memory), sizeof(uint_08));
+    ptr->pointer = calloc(len + 1, sizeof(uint_08));
+    ptr->length = len;
     return ptr;
 };
 
-memory* mallocg(size_t length) {
-    memory* ptr = (memory*) malloc(sizeof(memory));
-    ptr->pointer = malloc(length + 1);
-    ptr->length = length;
-    *((char*)ptr->pointer + length) = 0;
+memory* mallocg(uint_32 len) {
+    memory* ptr = (memory*) calloc(sizeof(memory));
+    ptr->pointer = malloc(len + 1);
+    ptr->length = len;
+    *((uint_08*)ptr->pointer + len) = 0;
     return ptr;
 };
 
@@ -42,7 +42,7 @@ void freeg(memory* ptr) {
     free(ptr);
 };
 
-size_t strleng(memory* ptr) {
+uint_32 strleng(memory* ptr) {
     return ptr->length;
 };
 #pragma endregion
