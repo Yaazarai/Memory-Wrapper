@@ -2,16 +2,18 @@
 #define C_MEMORY
     #include <stdlib.h>
     #include <string.h>
-
-    typedef unsigned char size_u8;
+    
+    typedef size_t uint_32;
+    typedef unsigned char uint_08;
+    
     typedef struct c_memory {
-        size_t length;
-        size_u8* pointer;
+        uint_32 length;
+        uint_08* pointer;
     } memory;
 
-    memory* reallocg(memory* ptr, size_t length);
-    memory* callocg(size_t length);
-    memory* mallocg(size_t length);
-    size_t strleng(memory* ptr);
+    memory* reallocg(memory* ptr, uint_32 len);
+    memory* callocg(uint_32 len);
+    memory* mallocg(uint_32 len);
+    uint_32 strleng(memory* ptr);
     void freeg(memory* ptr);
 #endif
