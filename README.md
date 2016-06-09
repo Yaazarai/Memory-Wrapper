@@ -1,5 +1,5 @@
 # null-terminated-memory
-Null-terminated and zero'd out memory container for C. The container keeps track of both the point and the length of the pointer.
+Null-terminated and zero'd out memory container for C. The container keeps track of both the pointer and the length of the pointer.
 ```C
 // Aliased Types
 typedef size_t uint_32;
