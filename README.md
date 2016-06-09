@@ -1,5 +1,5 @@
-# null-terminated-memory
-Null-terminated and zero'd out memory container for C. The container keeps track of both the pointer and the length of the pointer.
+# Memory Wrapper
+Null-terminated and zero'd out memory container for C. The container keeps track of both the pointer and the length of the pointer. The extra null-byte at the end of the memory sequence is for when you need to pass the pointer to a function where null-termination is required to avoid undefined results. A good example of this is with strings via `strlen()` in `<string.h>`.
 ```C
 // Aliased Types
 typedef size_t uint_32;
