@@ -7,8 +7,8 @@ typedef unsigned char uint_08;
 
 // Memory Container.
 typedef struct c_memory {
- uint_32 length;
- uint_08* pointer;
+    uint_32 length;
+    uint_08* pointer;
 } memory;
 
 /// == Memory Allocation ==
@@ -21,5 +21,5 @@ memory* reallocg(memory* ptr, uint_32 length);
 // Frees a memory container.
 void freeg(memory* ptr);
 // Gets the length of the memory container.
-unsigned int strleng(memory* ptr);
+uint_32 strleng(memory* ptr);
 ```
