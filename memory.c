@@ -27,7 +27,7 @@
     };
     
     memory* mallocg(uint_32 len) {
-        memory* ptr = (memory*) calloc(sizeof(memory));
+        memory* ptr = (memory*) calloc(sizeof(memory), sizeof(uint_08));
         ptr->pointer = malloc(len + 1);
         ptr->length = len;
         *((uint_08*)ptr->pointer + len) = 0;
