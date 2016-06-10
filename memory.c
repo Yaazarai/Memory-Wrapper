@@ -7,6 +7,7 @@
         if (newptr != NULL) {
             if (ptr->pointer == NULL) {
                 ptr->pointer = newptr;
+                ptr->length = len;
                 return ptr;
             }
             
